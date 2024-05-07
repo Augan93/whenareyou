@@ -34,7 +34,8 @@ def _cached_json_get(url: str) -> dict:
     Makes a get to that URL and caches it. Simple right? Oh it also returns the
     JSON as a dict for you already!
     """
-    return requests.get(url).json()
+    headers = {'User-Agent': 'g-plus/1.0'}
+    return requests.get(url, headers=headers).json()
 
 
 def _queryOSM(address: str) -> list[Optional[float]]:
